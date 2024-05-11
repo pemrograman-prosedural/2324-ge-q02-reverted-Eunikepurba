@@ -1,7 +1,6 @@
 // 12S23021 - Eunike Purba
 // 12S23041 - Lisbeth Panjaitan 
 
-// Include necessary libraries and header files
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,10 +8,9 @@
 #include "./libs/student.h"
 #include "./libs/gender.h"
 
-// Main function
 int main(int _argc, char **_argv)
 {
-  // Initialize variables
+  // Menginisialisasi variabelnya
   char input[75];
   int zdrm = 0;
   int size = 0;
@@ -25,10 +23,11 @@ int main(int _argc, char **_argv)
   // Infinite loop to process input
   while (1)
   {
-    // Read input from user
+    // setelah menerima input maka selanjutnya akan membaca input dari si user
     fgets(input, sizeof input, stdin);
 
-    // Remove trailing newline or carriage return from input
+    // Menggunakan fungsi newline or carriage return from input
+    // menggunakan fungsi break juga dimana jika nilai nya nanti 0 atau NULL maka akan break
     while (1)
     {
       if (input[strlen(input) - 1] == '\n' || input[strlen(input) - 1]== '\r')
@@ -41,10 +40,10 @@ int main(int _argc, char **_argv)
       }
     }
 
-    // Tokenize input on '#'
+    // menggunakan fungsi strtok dengan input nya akan dipisahkan oleh delimenter('#')
     token = strtok(input, "#");
 
-    // Process input based on first token
+    // memproses input dari nilai token pertama
     if (strcmp(token, "---") == 0)
     {
       // If token is "---", break the loop
@@ -120,10 +119,9 @@ int main(int _argc, char **_argv)
     }
   }
 
-  // Free allocated memory
+  // menggunakan fungsi free untuk membebaskan memory nya
   free(mhs);
   free(drm);
 
-  // Return 0 to indicate successful execution
   return 0;
 }

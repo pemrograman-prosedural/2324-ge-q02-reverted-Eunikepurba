@@ -1,20 +1,24 @@
-#include "dorm.h"
+#include "dorm.h" 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
-// Function to create a new dormitory
+// menggunakan function dengan struct untuk mencreate nama asramanya
 struct dorm_t create_dorm(char *input)
 {
-  // Declare a new dormitory structure
+  // Mendeklarasikan struct dari asramanya
+  // isi dari si struct terdiri dari dormitoryname,capacity dan gender
   struct dorm_t drm;
 
-  // Parse the input string to get the dormitory name, capacity, and gender
+  // Parse the string untuk mendapatkan jenis asrama dari si student tadi
+  // setelah mendapatkan dormitory name maka akan menginput string capacity dan gendernya
+  // menggunakan strcpy untuk menyalin parse the string
   strcpy(drm.name, strtok(NULL, "#"));
   drm.capacity = atoi(strtok(NULL, "#"));
   char *yoru = strtok(NULL, "#");
 
-  // Set the gender of the dormitory based on the parsed input
+  // menggunakan fungsi set gender dari jenis asramanya
+  // menggunakan fungsi dari branching dan string compare
   if (strcmp(yoru, "male") == 0)
   {
     drm.gender = GENDER_MALE;
@@ -24,17 +28,17 @@ struct dorm_t create_dorm(char *input)
     drm.gender = GENDER_FEMALE;
   }
 
-  // Initialize the number of residents to 0
+  // menginisialisasi nomor resident number = 0 atau NULLL
   drm.residents_num=0;
 
-  // Return the created dormitory
+  //mencreate dormitory
   return drm;
 }
 
 // Function to print basic information of a dormitory
 void print_dorm(struct dorm_t drm)
 {
-  // Print the name and capacity of the dormitory
+  // mencetak nama si student dan capacity dari asrama tersebut
   printf("%s|%hu|", drm.name, drm.capacity);
 
   // Print the gender of the dormitory

@@ -1,14 +1,13 @@
-// Include the necessary header files
 #include "student.h"
 #include "dorm.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
-// Function to create a new student
+// create a new student
 struct student_t create_student(char *input)
 {
-  // Declare a new student structure
+  // deklarasikan a new student structure
   struct student_t mhs;
 
   // Parse the input string to get the student's id, name, year, and gender
@@ -27,16 +26,17 @@ struct student_t create_student(char *input)
     mhs.gender = GENDER_FEMALE;
   }
 
-  // Initialize the dormitory of the student to unassigned
+  // Inisialisasi dormitory of the student dengan nilai unassigned
+  // gunakan fungsi malloc
   mhs.dorm = NULL;
   mhs.dorm = malloc(1 * sizeof(struct dorm_t));
   strcpy(mhs.dorm->name, "unassigned");
 
-  // Return the created student
+  // return created student
   return mhs;
 }
 
-// Function to print basic information of a student
+// mencetak informasi of a student
 void print_student(struct student_t mhs)
 {
   // Print the id, name, and year of the student
@@ -53,7 +53,7 @@ void print_student(struct student_t mhs)
   }
 }
 
-// Function to print detailed information of a student
+// cetak detailed information of a student
 void print_student_detail(struct student_t mhs)
 {
   // Print the id, name, year, and gender of the student
@@ -87,14 +87,14 @@ int find_id(char *nim, int zstd, struct student_t *mhs)
     }
   }
 
-  // Return the index of the found student, or -1 if not found
+  // tentukan index dari student, or -1 if not found 
   return find_id;
 }
 
-// Function to assign a student to a dormitory
+// assign a student to a dormitory
 void assign_student(struct dorm_t *drm, struct student_t *mhs, char *nim, char *asrama, int zstd, int zdrm, int find_id(char *nim, int zstd, struct student_t *mhs), int find_dorm(char *asrama, int zdrm, struct dorm_t *drm))
 {
-  // Find the index of the student and the dormitory
+  // mencari nilai index student and the dormitory
   int maha = find_id(nim, zstd, mhs);
   int asra = find_dorm(asrama, zdrm, drm);
 
@@ -106,10 +106,10 @@ void assign_student(struct dorm_t *drm, struct student_t *mhs, char *nim, char *
   }
 }
 
-// Function to move a student from one dormitory to another
+// move a student from one dormitory to another
 void move_student(struct dorm_t *drm, struct student_t *mhs, char *nim, char *asrama, int zstd, int zdrm, int find_id(char *nim, int zstd, struct student_t *mhs), int find_dorm(char *asrama, int zdrm, struct dorm_t *drm))
 {
-  // Find the index of the student
+  // mencari index of the student
   int maha = find_id(nim, zstd, mhs);
 
   // Store the name of the current dormitory of the student
@@ -134,13 +134,13 @@ void move_student(struct dorm_t *drm, struct student_t *mhs, char *nim, char *as
   }
 }
 
-// Function to empty a dormitory
+// mengggunakan fungsi to empty a dormitory
 void dorm_empty(char *asrama, int zstd, int zdrm, struct student_t *mhs, struct dorm_t *drm, int find_dorm(char *asrama, int zdrm, struct dorm_t *drm))
 {
-  // Find the index of the dormitory
+  // cari index of the dormitory
   int asra = find_dorm(asrama, zdrm, drm);
 
-  // Loop through the array of students
+  // menggunakan looping for untuk array students
   for (int m = 0; m < zstd; m++)
   {
     // If the student is in the dormitory, unassign the student from the dormitory
