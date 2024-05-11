@@ -1,5 +1,5 @@
 #ifndef STUDENT_H
-#define STUDENT_H
+#define STUDENT_H 
 
 #include "gender.h"
 #include "dorm.h"

@@ -1,0 +1,4 @@
+menggunakan function dengan struct untuk mencreate nama asramanya
+mengguanakan fungsi strcmp
+nilai resident dimisalkan = 0 atau NULL
+memcoba untuk submit

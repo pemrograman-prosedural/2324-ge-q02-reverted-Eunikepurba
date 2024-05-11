@@ -1,7 +1,17 @@
 #include "gender.h"
+#include <stdio.h>
 
-/**
- * @brief Define the complete function definition here. Be sure to enlist the prototype of each function
- * defined here in the corresponding header file.
- *
- */
+void print_gender(enum gender_t gender) {
+    switch(gender) {
+        case GENDER_MALE:
+            printf("Male\n");
+            break;
+        case GENDER_FEMALE:
+            printf("Female\n");
+            break;
+        default:
+            printf("Invalid gender\n");
+            break;
+    }
+}
+
